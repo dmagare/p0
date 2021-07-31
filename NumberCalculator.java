@@ -2,63 +2,70 @@ import java.util.Scanner;
 
 public class NumberCalculator {
 
-    public double add(double first, double second){
+
+    public int add(int first, int second){
        
         return first + second;
 
     }
-    public double multiply(double first, double second){
+    public int multiply(int first, int second){
        
         return first * second;
 
-    } public double subtract(double first, double second){
+    } public int subtract(int first, int second){
        
         return first - second;
 
     }
-    public double divide(double first, double second){
+    public int divide(int first, int second){
        
-        return first - second;
+        return first / second;
     }
     
     public static void main(String[] args){
+
         NumberCalculator calc = new NumberCalculator();
         
         char operator;
-        Double firstNumber, secondNumber, result;
+        int firstNumber;
+        int secondNumber;
+        int result;
         //creating an object of scanner class
         Scanner scan = new Scanner(System.in);
         //Ask for input here
-        System.out.println("Choose and operator: +, -, *,/");
+        System.out.println("Please Enter Symbol \" + \" for ADDITION, ");
+        System.out.println("Please Enter Symbol \" - \" for SUTRACTION,");
+        System.out.println("Please Enter Symbol \" * \" for MULTIPLICATION,");
+        System.out.println("Please Enter Symbol \" / \" for DIVISION");
+
         operator = scan.next().charAt(0);
         if(operator != '+'&& operator != '-'&&operator != '*'&&operator != '/')
 
             {
-            System.out.println("invalid operator");
+            System.out.println("Oops! That symbol is invalid! please try again");
              System.exit(0);}
-            
 
         //ask for the first number to calculate
         System.out.println("Enter first Number!");
-        firstNumber = scan.nextDouble();
+        firstNumber = scan.nextInt();
         System.out.println("Enter second Number!");
-        secondNumber = scan.nextDouble();
+        secondNumber = scan.nextInt();
 
         switch(operator){
             case '+':
-            result = calc.add(firstNumber, secondNumber);//firstNumber + secondNumber;
+            result = (int) calc.add(firstNumber, secondNumber);//firstNumber + secondNumber;
             System.out.println(firstNumber + " + "+secondNumber+ " = " +result);
             break;
             case '-':
-            result = firstNumber - secondNumber;
+            result = (int) calc.subtract(firstNumber, secondNumber);//firstNumber - secondNumber;
             System.out.println(firstNumber + " - "+secondNumber+ " = " +result);
             break;
             case '*':
-            result = firstNumber * secondNumber;
+            result = (int) calc.multiply(firstNumber, secondNumber);//
             System.out.println(firstNumber + " * "+secondNumber+ " = " +result);
             break;
             case '/':
-            result = firstNumber / secondNumber;
+            result = (int) calc.divide(firstNumber, secondNumber);
             System.out.println(firstNumber + " / "+secondNumber+ " = " +result);
             break;
             
